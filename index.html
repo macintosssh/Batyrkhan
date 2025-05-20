@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BeatLY</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- Header -->
+  <header class="header">
+    <div class="logo">BeatLY <a href="image/logo.png"></a></div>
+    <input type="text" class="search" id="searchInput" placeholder="Поиск по сайту...">
+    <a href="login/index.html" class="login-btn">Войти</a>
+
+  </header>
+
+  <!-- Main Layout -->
+  <div class="main">
+    <!-- Left Sidebar -->
+    <nav class="sidebar">
+      <ul>
+        <li class="active" onclick="switchTab('home')">Главная</li>
+        <li onclick="switchTab('favorites')">Избранное</li>
+        <li onclick="switchTab('news')">Новости</li>
+      </ul>
+    </nav>
+
+    <!-- Right Content -->
+    <section class="content"> 
+      <img src="image/gif.gif" alt="">
+      <!-- Главная -->
+      <div id="tab-home">
+        <div class="album-row">
+          <div class="spacer-block">ㅤПопулярные треки🎶</div>
+        </div>
+        <div class="album-row" id="albumsRowTop"></div>
+        <div class="album-row">
+          <div class="spacer-block">ㅤПопулярные исполнительные👑</div>
+        </div>
+        <div class="album-row" id="albumsRowBottom"></div>
+      </div>
+      <div class="album-row vertical-scroll">
+  <!-- Альбомы/новости -->
+</div>
+
+      <!-- Избранное -->
+      <div id="tab-favorites" class="hidden">
+        <h2>Избранные Треки❤️</h2>
+        <div class="album-row">
+          <div class="album" onclick="playTestTrack('https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3')">
+            <img src="image/vmeste.jpg" alt="">
+            <div class="track-info">
+              <p class="track-name">Вместе</p>
+              <p class="artist-name">Aarne</p>
+            </div>
+          </div>
+          <div class="album" onclick="playTestTrack('https://www.soundhelix.com/examples/mp3/SoundHelix-Song-2.mp3')">
+            <img src="image/prince.jpg" alt="">
+            <div class="track-info">
+              <p class="track-name">Шараут</p>
+              <p class="artist-name">$Prince</p>
+            </div>
+          </div>
+          <div class="album" onclick="playTestTrack('https://www.soundhelix.com/examples/mp3/SoundHelix-Song-3.mp3')">
+            <img src="image/ocean.jpg" alt="">
+            <div class="track-info">
+              <p class="track-name">White+</p>
+              <p class="artist-name">Frank ocean</p>
+            </div>
+          </div>
+          <div class="album" onclick="playTestTrack('https://www.soundhelix.com/examples/mp3/SoundHelix-Song-4.mp3')">
+            <img src="image/cepi.jpg" alt="">
+            <div class="track-info">
+              <p class="track-name">Цепи</p>
+              <p class="artist-name">Scriptonite</p>
+            </div>
+          </div>
+          <div class="album" onclick="playTestTrack('https://www.soundhelix.com/examples/mp3/SoundHelix-Song-5.mp3')">
+            <img src="image/dance.jpg" alt="">
+            <div class="track-info">
+              <p class="track-name">Танцуй</p>
+              <p class="artist-name">Lover</p>
+            </div>
+          </div>
+          <div class="album" onclick="playTestTrack('https://www.soundhelix.com/examples/mp3/SoundHelix-Song-6.mp3')">
+            <img src="image/ika.jpg" alt="">
+            <div class="track-info">
+              <p class="track-name">Все в переди</p>
+              <p class="artist-name">Irina Kairatovna</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Новости -->
+      <div id="tab-news" class="hidden">
+        <h2>Музыкальные Новости📰</h2>
+        <div style="display: flex; flex-direction: column; gap: 20px;">
+          <div class="album">
+            <img src="image/billie.jpg" alt="">
+            <div class="track-info">
+              <p class="track-name">Billie Eilish анонсировала новый альбом</p>
+              <p class="artist-name">Выход намечен на осень 2025 года</p>
+            </div>
+          </div>
+          <div class="album">
+            <img src="image/weeknd.jpg" alt="">
+            <div class="track-info">
+              <p class="track-name">The Weeknd объявил о мировом туре 2025</p>
+              <p class="artist-name">Исполнитель отправляется в тур “After Hours Til Dawn 2.0”</p>
+            </div>
+          </div>
+          <div class="album">
+            <img src="image/oxxx.jpg" alt="">
+            <div class="track-info">
+              <p class="track-name">Oxxxymiron вернулся с новым синглом</p>
+              <p class="artist-name">После долгого молчания рэпер выпустил трек “Без компромиссов”</p>
+            </div>
+          </div>
+          <div class="album">
+            <img src="image/kpop.jpg" alt="">
+            <div class="track-info">
+              <p class="track-name">K-pop продолжает завоевывать мир</p>
+              <p class="artist-name">Новые рекорды на YouTube</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <!-- Footer Player -->
+  <footer class="footer">
+    <audio controls class="audio-player" id="audioPlayer">
+      <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg">
+      Ваш браузер не поддерживает аудио элемент.
+    </audio>
+  </footer>
+
+  <!-- Album Details Modal -->
+  <div class="details-page hidden" id="detailsModal">
+    <div class="details-content">
+      <img id="detailsImg" src="" alt="Альбом">
+      <h3 id="detailsTitle">Название</h3>
+      <p id="detailsArtist">Исполнитель</p>
+      <button id="closeDetailsBtn">Закрыть</button>
+    </div>
+  </div>
+
+  <script>
+    const albumsDataTop = [
+      { img: 'image/положение.jpg', title: 'Положение', artist: 'Scriptonite', src: 'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3' },
+      { img: 'image/solo.jpg', title: 'Solo', artist: 'Frenk Ocean', src: 'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-2.mp3' },
+      { img: 'image/star.jpg', title: 'Star', artist: 'The Weeknd', src: 'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-3.mp3' },
+      { img: 'image/changes.jpg', title: 'Changes', artist: '2pac', src: 'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-4.mp3' },
+      { img: 'image/supersonic.jpg', title: 'Supersonic', artist: 'Big baby tape', src: 'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-5.mp3' },
+      { img: 'image/give me.jpg', title: 'Give me love', artist: 'Joji', src: 'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-6.mp3' },
+      { img: 'image/audi.jpg', title: 'Audi', artist: 'Moyot', src: 'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-7.mp3' }
+    ];
+    const albumsDataBottom = [
+      { img: 'image/scriptonite.jpg', title: 'Scriptonite', artist: 'Исполнитель ' },
+      { img: 'image/frank.jpg', title: 'Frenk Ocean', artist: 'Исполнитель ', },
+      { img: 'image/the weeknd.jpg', title: 'The Weekend', artist: 'Исполнитель ',},
+      { img: 'image/2pac.jpg', title: '2pac', artist: 'Исполнитель ',},
+      { img: 'image/bigbabytape.jpg', title: 'Big baby tape', artist: 'Исполнитель ',},
+      { img: 'image/joji.jpg', title: 'Joji', artist: 'Исполнитель ',},
+      { img: 'image/moyot.jpg', title: 'Moyot', artist: 'Исполнитель ',}
+    ];
+
+    function renderAlbumRow(containerId, data) {
+      const container = document.getElementById(containerId);
+      container.innerHTML = '';
+      data.forEach(album => {
+        const el = document.createElement('div');
+        el.className = 'album';
+        el.innerHTML = `
+          <img src="${album.img}" alt="Альбом">
+          <div class="track-info">
+            <p class="track-name">${album.title}</p>
+            <p class="artist-name">${album.artist}</p>
+          </div>`;
+        el.onclick = () => {
+          const player = document.getElementById('audioPlayer');
+          player.src = album.src;
+          player.play();
+          showDetails(album);
+        };
+        container.appendChild(el);
+      });
+    }
+
+    function playTestTrack(src) {
+      const player = document.getElementById('audioPlayer');
+      player.src = src;
+      player.play();
+    }
+
+    function switchTab(tabName) {
+      document.querySelectorAll('.sidebar li').forEach(li => li.classList.remove('active'));
+      document.querySelector(`.sidebar li[onclick*='${tabName}']`).classList.add('active');
+      document.querySelectorAll('.content > div').forEach(div => div.classList.add('hidden'));
+      document.getElementById('tab-' + tabName).classList.remove('hidden');
+    }
+
+    function showDetails(album) {
+      document.getElementById('detailsImg').src = album.img;
+      document.getElementById('detailsTitle').textContent = album.title;
+      document.getElementById('detailsArtist').textContent = album.artist;
+      document.getElementById('detailsModal').classList.remove('hidden');
+    }
+
+    document.getElementById('closeDetailsBtn').addEventListener('click', () => {
+      document.getElementById('detailsModal').classList.add('hidden');
+    });
+
+    document.getElementById('detailsModal').addEventListener('click', (e) => {
+      if (e.target.id === 'detailsModal') {
+        document.getElementById('detailsModal').classList.add('hidden');
+      }
+    });
+
+    renderAlbumRow('albumsRowTop', albumsDataTop);
+    renderAlbumRow('albumsRowBottom', albumsDataBottom);
+
+  // Глобальный поиск по сайту
+  document.getElementById('searchInput').addEventListener('input', function () {
+    const query = this.value.toLowerCase();
+
+    document.querySelectorAll('.content > div').forEach(tab => {
+      let hasResults = false;
+      tab.querySelectorAll('.album, .favorite-track, .news-item').forEach(el => {
+        const text = el.textContent.toLowerCase();
+        if (text.includes(query)) {
+          el.style.display = '';
+          hasResults = true;
+        } else {
+          el.style.display = 'none';
+        }
+      });
+
+      if (query === '') {
+        tab.querySelectorAll('.album, .favorite-track, .news-item').forEach(el => {
+          el.style.display = '';
+        });
+      }
+    });
+  });
+
+
+  </script>
+</body>
+</html>

@@ -1,0 +1,57 @@
+* {
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+    box-sizing: border-box;
+}
+
+@font-face {
+    font-family: "Bounded-Regular";
+    src: url("../fonts/Bounded-Regular.ttf");
+}
+
+::-webkit-scrollbar {
+    width: 0;
+}
+
+body {
+    background-color: rgb(14, 0, 41);
+    font-family: "Bounded-Regular";
+}
+
+.container_error {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    height: 100vh;
+}
+
+.error_text {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 10%;
+}
+
+#text1 {
+    height: 30%;
+    font-size: 130pt;
+    font-weight: bold;
+    color: rgb(255, 255, 255);
+    -webkit-text-stroke: 2px black;
+    text-align: center;
+}
+
+#text2 {
+    font-size: 30pt;
+    font-weight: bold;
+    text-align: center;
+}
+
+#text3 {
+    font-size: 15pt;
+    text-align: center;
+}

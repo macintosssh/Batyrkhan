@@ -1,0 +1,309 @@
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      display: flex;
+      flex-direction: column;
+      height: 100vh;
+    }
+
+    .header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px 20px;
+      background-color: #1e1e2f;
+      color: white;
+    }
+
+    .logo {
+      font-size: 1.5em;
+      font-weight: bold;
+    }
+
+    .logo img {
+      width: 20px;
+      height:20px;
+    }
+
+    .search {
+      flex: 1;
+      margin: 0 20px;
+      padding: 8px;
+      border-radius: 5px;
+      border: none;
+    }
+
+    .login-btn {
+      background-color: #4caf50;
+      color: white;
+      border: none;
+      padding: 8px 16px;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    .main {
+      display: flex;
+      flex: 1;
+      overflow: hidden;
+    }
+
+    .sidebar {
+      width: 25%;
+      background-color: #2c2c3e;
+      color: white;
+      padding: 20px;
+    }
+
+    .sidebar ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    .sidebar li {
+      margin: 20px 0;
+      cursor: pointer;
+    }
+
+    .sidebar li.active {
+      font-weight: bold;
+      text-decoration: underline;
+    }
+
+    .content {
+      width: 75%;
+      background-color: black;
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      overflow-y: auto;
+    }
+    .content img{
+      height: 45%;
+      border-radius: 5%;
+    }
+    .album-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      justify-content: flex-start;
+    }
+
+    .spacer-block {
+      display: flex;
+      align-items: center;
+      width: 100%;
+      height: 50px;
+      background-color: #1e1e2f;
+      border-radius: 5px;
+    }
+
+    .album {
+      background: white;
+      border-radius: 10px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      padding: 10px;
+      width: 200px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      cursor: pointer;
+      transition: transform 0.2s;
+    }
+
+    .album:hover {
+      transform: scale(1.05);
+    }
+
+    .album img {
+      width: 100%;
+      border-radius: 10px;
+    }
+
+    .track-info {
+      text-align: center;
+      margin-top: 10px;
+    }
+
+    .track-name {
+      font-weight: bold;
+    }
+
+    .artist-name {
+      color: #666;
+    }
+
+    .footer {
+      background-color: #1e1e2f;
+      padding: 10px;
+      text-align: center;
+    }
+
+    .audio-player {
+      width: 100%;
+    }
+
+    .hidden {
+      display: none !important;
+    }
+
+    .details-page {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background: rgba(0, 0, 0, 0.8);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 1000;
+    }
+
+    .details-content {
+      background: #2c2c3e;
+      padding: 30px;
+      border-radius: 10px;
+      text-align: center;
+      width: 300px;
+      max-width: 90%;
+    }
+
+    .details-content img {
+      width: 100%;
+      border-radius: 10px;
+    }
+
+    .details-content button {
+      margin-top: 15px;
+      padding: 10px;
+      border: none;
+      background: #1e1e2f;
+      color: white;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    /* Адаптивная структура сайта */
+body, html {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+  background: #111;
+  color: white;
+}
+
+.header, .footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+
+}
+
+.main {
+  display: flex;
+  flex-direction: row;
+  height: calc(100vh - 120px);
+}
+
+.sidebar {
+  width: 25%;
+  padding: 20px;
+  box-sizing: border-box;
+  font-size: 26px;
+}
+
+.content {
+  width: 75%;
+  padding: 20px;
+  box-sizing: border-box;
+  overflow-y: auto;
+}
+
+.album, .favorite-track, .news-item {
+  background: #2c2c3e;
+  margin: 10px;
+  padding: 10px;
+  border-radius: 8px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.album img, .favorite-track img {
+  width: 80px;
+  height: 80px;
+  margin-right: 15px;
+}
+
+.track-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.search {
+  width: 100%;
+  padding: 10px;
+  box-sizing: border-box;
+  margin-bottom: 10px;
+}
+
+.hidden {
+  display: none;
+}
+
+/* Адаптивность */
+@media (max-width: 1024px) {
+  .main {
+    flex-direction: column;
+  }
+  .sidebar, .content {
+    width: 100%;
+  }
+}
+
+@media (max-width: 600px) {
+  .album img, .favorite-track img {
+    width: 60px;
+    height: 60px;
+  }
+  .track-info p {
+    font-size: 14px;
+  }
+  .header, .footer {
+    flex-direction: column;
+    text-align: center;
+  }
+  .search {
+    width: 100%;
+  }
+  .album, .favorite-track, .news-item {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+
+
+.album-row {
+  display: flex;
+  flex-wrap: nowrap;       /* Чтобы не переносило альбомы на новую строку */
+  overflow-x: auto;         /* Горизонтальный скролл при переполнении */
+  gap: 20px;
+  padding-bottom: 10px;
+  scroll-behavior: smooth;
+  margin-bottom: 20px;
+}
+
+.album-row::-webkit-scrollbar {
+  height: 8px;
+}
+.album-row::-webkit-scrollbar-thumb {
+  background-color: #888;
+  border-radius: 4px;
+}
+.album-row::-webkit-scrollbar-track {
+  background-color: #2c2c3e;
+}
+
